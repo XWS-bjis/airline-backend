@@ -12,10 +12,11 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
+//import oracle.security.restsec.jwt.JwtToken
 
 @Service
 public class JwtService {
-    private static final String  SECRET_KEY = "423F4528482B4D6251655468576D5A7134743777397A24432646294A404E6352";
+    private static final String  SECRET_KEY = "5A7134743677397A24432646294A404E635266556A586E327235753878214125";
     private static final int EXPIRES_IN = 1800000;
     public String extractUsername(String token){
         return extractClaim(token, Claims::getSubject);
