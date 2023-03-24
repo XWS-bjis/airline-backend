@@ -1,8 +1,15 @@
 package com.airlinecompany.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import org.springframework.data.annotation.Id;
+
 import java.time.LocalDateTime;
 
+@Data
+@AllArgsConstructor
 public class Flight {
+    @Id
     private String id;
     private LocalDateTime takeOfDate;
     private LocalDateTime landingDate;
