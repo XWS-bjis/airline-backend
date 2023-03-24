@@ -1,16 +1,10 @@
 package com.airlinecompany.service;
 
-
-import com.airlinecompany.config.JwtService;
-import com.airlinecompany.dto.AuthenticationResponse;
-import com.airlinecompany.dto.LoginDTO;
 import com.airlinecompany.dto.UserCreateDTO;
 import com.airlinecompany.model.AuthenticationRole;
 import com.airlinecompany.model.User;
 import com.airlinecompany.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -26,6 +20,9 @@ public class UserService implements UserDetailsService {
    @Autowired
    private PasswordEncoder passwordEncoder;
 
+   @Autowired
+   private AuthenticationRoleService authenticationRoleService;
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findOneByUserName(username);
@@ -38,22 +35,24 @@ public class UserService implements UserDetailsService {
 
     public User create(UserCreateDTO userCreateDTO){
         if(userRepository.findOneByUserName(userCreateDTO.getUserName()) == null){
-            User user = DtoToEntity(userCreateDTO);
+            User user = new User();
+            user = DtoToEntity(userCreateDTO, user);
             return userRepository.save(user);
         }
         return null;
     }
 
-    public User DtoToEntity(UserCreateDTO userCreateDTO){
-        AuthenticationRole authenticationRole= new AuthenticationRole();
-        authenticationRole.setType("ROLE_ADMIN");
-        User user = new User();
+    public User DtoToEntity(UserCreateDTO userCreateDTO, User user){
+        AuthenticationRole  authenticationRole = authenticationRoleService.findByType("ROLE_REGULAR");
+
         user.setName(userCreateDTO.getName());
         user.setSurname(userCreateDTO.getSurname());
         user.setUserName(userCreateDTO.getUserName());
         user.setPassword(passwordEncoder.encode(userCreateDTO.getPassword()));
         user.setEmail(userCreateDTO.getEmail());
+        user.setAddress(userCreateDTO.getAddress());
         user.setRole(authenticationRole);
+
         return user;
     }
 

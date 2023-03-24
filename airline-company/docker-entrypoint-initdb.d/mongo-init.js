@@ -37,3 +37,11 @@
 
 
  );
+
+db.createCollection('authenticationRole');
+db.authenticationRole.insert(
+    {
+        "type" : "ROLE_REGULAR"
+    }
+);
+
