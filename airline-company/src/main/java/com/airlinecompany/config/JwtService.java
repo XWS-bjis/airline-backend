@@ -15,7 +15,6 @@ import java.util.function.Function;
 @Service
 public class JwtService {
     private static final String  SECRET_KEY = "5A7134743677397A24432646294A404E635266556A586E327235753878214125";
-//    private SecretKey SECRET_KEY = Keys.secretKeyFor(SignatureAlgorithm.HS512);
     private static final int EXPIRES_IN = 1800000;
     public String extractUsername(String token){
         return extractClaim(token, Claims::getSubject);
