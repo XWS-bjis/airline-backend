@@ -12,11 +12,11 @@ import org.springframework.security.core.GrantedAuthority;
 @NoArgsConstructor
 public class AuthenticationRole implements GrantedAuthority {
     private String id;
-    private Role type;
+    private String type;
 
 
     @Override
     public String getAuthority() {
-        return this.type.name();
+        return this.type;
     }
 }

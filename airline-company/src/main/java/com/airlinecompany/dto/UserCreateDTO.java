@@ -1,7 +1,5 @@
 package com.airlinecompany.dto;
 
-import com.airlinecompany.model.Address;
-import com.airlinecompany.model.Role;
 import lombok.Data;
 
 @Data

@@ -1,7 +1,7 @@
 package com.airlinecompany.model;
+
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import org.springframework.data.annotation.Id;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -11,6 +11,7 @@ import java.util.List;
 
 @Data
 public class User implements UserDetails{
+    @Id
     private String id;
     private String name;
     private String surname;
@@ -18,11 +19,12 @@ public class User implements UserDetails{
     private String email;
     private String password;
     private Address address;
-    private Role role;
+    private AuthenticationRole role;
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(role.name()));
+        return List.of(new SimpleGrantedAuthority(role.getType()));
     }
 
     @Override
