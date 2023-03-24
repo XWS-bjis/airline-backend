@@ -6,9 +6,9 @@
      {
          "name": "jeca",
          "surname": "pet",
-         "userName":"jecka",
+         "userName":"Admin",
          "email": "emaili.com",
-         "password":"$2a$10$NuqVd6VprcL3wB8jxxXQCuV3sryvkyeZtMZegIvJTIhH9kuVm1BZO",
+         "password":"$2a$10$AmSd1Bo28xit.Cq947HO0exPCnL2VUZ5eTAwgkMP7MfDl6sscz60O", //123
          "address": {
              "streetNumber": "15",
              "streetName": "ulica",
