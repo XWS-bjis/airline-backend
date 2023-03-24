@@ -24,7 +24,7 @@
 
  db.createCollection('flight');
 
-  db.flight.insert(
+ db.flight.insert(
      {
         "takeOfDate": "2023-03-24T10:01:43.161Z",
          "landingDate": "2023-03-24T10:01:43.161Z",
@@ -36,4 +36,4 @@
      }
 
 
-  );
+ );

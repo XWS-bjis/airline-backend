@@ -3,7 +3,6 @@ package com.airlinecompany.controller;
 import com.airlinecompany.model.Flight;
 import com.airlinecompany.service.FlightService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.annotation.Id;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
