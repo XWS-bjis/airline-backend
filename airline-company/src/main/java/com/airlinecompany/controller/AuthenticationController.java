@@ -34,12 +34,24 @@ public class AuthenticationController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<User> register(@RequestBody UserCreateDTO userCreateDTO){
+    public /*ResponseEntity<User>*/ AuthenticationResponse register(@RequestBody UserCreateDTO userCreateDTO){
         User newUser = userService.create(userCreateDTO);
-        if(newUser == null){
+       /* if(newUser == null){
             throw new RuntimeException(String.valueOf("User with given username already exists"));
         }
-        return new ResponseEntity<>(newUser, HttpStatus.CREATED);
+        return new ResponseEntity<>(newUser, HttpStatus.CREATED);*/
+        Authentication authentication1 = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(
+                        userCreateDTO.getUserName(),
+                        userCreateDTO.getPassword()
+                )
+        );
+        User myUser = (User) authentication1.getPrincipal();
+        System.out.println(myUser.getName());
+        var jwtToken = jwtService.generateToken(myUser);
+        return AuthenticationResponse.builder()
+                .token(jwtToken)
+                .build();
     }
 
     @PostMapping("/login")
