@@ -35,7 +35,6 @@
         "availableSeatsNumber": 50
      }
 
-
  );
 
 db.createCollection('authenticationRole');
@@ -43,5 +42,17 @@ db.authenticationRole.insert(
     {
         "type" : "ROLE_REGULAR"
     }
+
 );
+
+ db.createCollection("reservations");
+ db.reservations.insert(
+     {
+         "flightId": "641edb9b04b4acc8f295ad89",
+         "userId":"641edb9b04b4acc8f295ad8a",
+         "ticketAmount":20,
+         "totalTicketPrice": 1500.0
+     }
+ )
+
 
