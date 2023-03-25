@@ -1,6 +1,5 @@
 package com.airlinecompany.controller;
 
-import com.airlinecompany.model.AuthenticationRole;
 import com.airlinecompany.model.User;
 import com.airlinecompany.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
