@@ -26,8 +26,8 @@
 
  db.flight.insert(
      {
-        "takeOfDate": "2023-03-24T10:01:43.161Z",
-         "landingDate": "2023-03-24T10:01:43.161Z",
+        "takeOfDate": new ISODate("2023-03-24T10:01:43.161Z"),
+         "landingDate": new ISODate("2023-03-24T10:01:43.161Z"),
          "landingPlace": "LONDON",
          "departurePlace": "OSLO",
          "ticketPrice": 2.0,
