@@ -4,10 +4,10 @@
 
  db.user.insert(
      {
-         "name": "jeca",
-         "surname": "pet",
+         "name": "jelena",
+         "surname": "petric",
          "userName":"Admin",
-         "email": "emaili.com",
+         "email": "email.com",
          "password":"$2a$10$AmSd1Bo28xit.Cq947HO0exPCnL2VUZ5eTAwgkMP7MfDl6sscz60O", //123
          "address": {
              "streetNumber": "15",
@@ -18,6 +18,26 @@
              },
          "role":{
              "type":"ROLE_ADMIN"
+         }
+     }
+ );
+
+ db.user.insert(
+     {
+         "name": "bojana",
+         "surname": "zekanovic",
+         "userName":"Regular",
+         "email": "emaili.com",
+         "password":"$2a$10$AmSd1Bo28xit.Cq947HO0exPCnL2VUZ5eTAwgkMP7MfDl6sscz60O", //123
+         "address": {
+             "streetNumber": "15",
+             "streetName": "ulica",
+             "postalCode": "78389",
+             "town": "bp",
+             "country": "srb"
+         },
+         "role":{
+             "type":"ROLE_REGULAR"
          }
      }
  );
