@@ -26,6 +26,8 @@ public class SecurityConfiguration {
         http
                 .csrf().disable()
                 .authorizeHttpRequests()
+                .requestMatchers("/api/v1/flight/all").permitAll()
+                .requestMatchers("/api/v1/flight/filter").permitAll()
                 .requestMatchers("/api/v1/auth/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
