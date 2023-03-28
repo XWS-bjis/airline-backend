@@ -50,9 +50,36 @@
          "landingDate": new ISODate("2023-03-24T10:01:43.161Z"),
          "landingPlace": "LONDON",
          "departurePlace": "OSLO",
-         "ticketPrice": 2.0,
+         "ticketPrice": 90.0,
          "totalSeatsNumber": 50,
         "availableSeatsNumber": 50
+     }
+
+ );
+
+ db.flight.insert(
+     {
+         "takeOfDate": new ISODate("2023-04-12T10:01:43.161Z"),
+         "landingDate": new ISODate("2023-04-12T10:01:43.161Z"),
+         "landingPlace": "BELGRADE",
+         "departurePlace": "TIVAT",
+         "ticketPrice": 45.0,
+         "totalSeatsNumber": 50,
+         "availableSeatsNumber": 50
+     }
+
+ );
+
+
+ db.flight.insert(
+     {
+         "takeOfDate": new ISODate("2023-04-21T10:01:43.161Z"),
+         "landingDate": new ISODate("2023-04-21T10:01:43.161Z"),
+         "landingPlace": "MOSCOW",
+         "departurePlace": "PARIS",
+         "ticketPrice": 60.0,
+         "totalSeatsNumber": 50,
+         "availableSeatsNumber": 50
      }
 
  );
