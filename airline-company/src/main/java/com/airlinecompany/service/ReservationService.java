@@ -1,5 +1,6 @@
 package com.airlinecompany.service;
 
+import com.airlinecompany.dto.ReservationDTO;
 import com.airlinecompany.model.Flight;
 import com.airlinecompany.model.Reservations;
 import com.airlinecompany.repository.FlightRepository;
@@ -18,8 +19,8 @@ public class ReservationService {
     @Autowired
     FlightRepository flightRepository;
 
-    public List<Reservations> findAllByUserId(String userId){
-        return reservationRepository.findAllByUserId(userId);
+    public List<ReservationDTO> findAllByUserId(String userId){
+        return reservationRepository.findAllByUserId(userId).stream().map(r -> ReservationDTO.builder().id(r.getId()).userId(r.getUserId()).flight(flightRepository.findById(r.getFlightId()).get()).ticketAmount(r.getTicketAmount()).totalTicketPrice(r.getTotalTicketPrice()).build()).toList();
     }
 
     public Reservations buyingTickets(Reservations reservations) {
