@@ -29,6 +29,7 @@ public class SecurityConfiguration {
                 .requestMatchers("/api/v1/flight/all").permitAll()
                 .requestMatchers("/api/v1/flight/filter").permitAll()
                 .requestMatchers("/api/v1/auth/**").permitAll()
+                .requestMatchers("/api/v1/flight/").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .sessionManagement()
